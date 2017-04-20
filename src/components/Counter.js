@@ -2,45 +2,46 @@ import React, {
   Component,
   PropTypes,
 } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableHighlight,
-} from 'react-native';
+import nj from 'nornj';
+import { registerTmpl } from 'nornj-react';
 
+@registerTmpl({
+  name: 'Counter',
+  template: `
+    <View style={styles.container}>
+      <View style={styles.displayPanel}>
+        <Text style={styles.numberBlock}>{counter}</Text>
+        <Text style={styles.unitBlock}>/ times</Text>
+      </View>
+      <View style="{ list(styles.controlPanel, styles.inline) }">
+        <TouchableHighlight onPress={increment} style={styles.buttonAddSmall} underlayColor={colors.add.bg}>
+          <Text style="{ list(styles.text, styles.textColorAdd) }">+</Text>
+        </TouchableHighlight>
+        <TouchableHighlight onPress={decrement} style={styles.buttonMinusSmall} underlayColor={colors.minus.bg}>
+          <Text style="{ list(styles.text, styles.textColorMinus) }">-</Text>
+        </TouchableHighlight>
+      </View>
+      <View style={styles.controlPanel}>
+        <TouchableHighlight onPress={incrementIfOdd} style={styles.buttonAdd} underlayColor={colors.add.bg}>
+          <Text style="{ list(styles.text, styles.textColorAdd) }">Increment if odd</Text>
+        </TouchableHighlight>
+        <TouchableHighlight
+          onPress=${() => incrementAsync()} style={styles.buttonAdd} underlayColor={colors.add.bg}>
+          <Text style="{ list(styles.text, styles.textColorAdd) }">Increment async</Text>
+        </TouchableHighlight>
+        <TouchableHighlight
+          onPress=${() => decrementAsync()} style={styles.buttonMinus} underlayColor={colors.minus.bg}>
+          <Text style="{ list(styles.text, styles.textColorMinus) }">Decrement async</Text>
+        </TouchableHighlight>
+      </View>
+    </View>
+  `
+})
 class Counter extends Component {
   render() {
-    var { increment, incrementIfOdd, incrementAsync, decrement, decrementAsync, counter } = this.props;
-    return (
-      <View style={styles.container}>
-        <View style={styles.displayPanel}>
-          <Text style={styles.numberBlock}>{counter}</Text>
-          <Text style={styles.unitBlock}>/ times</Text>
-        </View>
-        <View style={[styles.controlPanel, styles.inline]}>
-          <TouchableHighlight onPress={increment} style={styles.buttonAddSmall} underlayColor={colors.add.bg}>
-            <Text style={[styles.text, styles.textColorAdd]}>+</Text>
-          </TouchableHighlight>
-          <TouchableHighlight onPress={decrement} style={styles.buttonMinusSmall} underlayColor={colors.minus.bg}>
-            <Text style={[styles.text, styles.textColorMinus]}>-</Text>
-          </TouchableHighlight>
-        </View>
-        <View style={styles.controlPanel}>
-          <TouchableHighlight onPress={incrementIfOdd} style={styles.buttonAdd} underlayColor={colors.add.bg}>
-            <Text style={[styles.text, styles.textColorAdd]}>Increment if odd</Text>
-          </TouchableHighlight>
-          <TouchableHighlight
-            onPress={() => incrementAsync()} style={styles.buttonAdd} underlayColor={colors.add.bg}>
-            <Text style={[styles.text, styles.textColorAdd]}>Increment async</Text>
-          </TouchableHighlight>
-          <TouchableHighlight
-            onPress={() => decrementAsync()} style={styles.buttonMinus} underlayColor={colors.minus.bg}>
-            <Text style={[styles.text, styles.textColorMinus]}>Decrement async</Text>
-          </TouchableHighlight>
-        </View>
-      </View>
-    );
+    const { incrementAsync, decrementAsync } = this.props;
+
+    return this.template(this.props, { styles });
   }
 }
 
