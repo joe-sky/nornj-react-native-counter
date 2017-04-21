@@ -1,6 +1,6 @@
 import { registerComponent } from 'nornj';
+import 'nornj-react/native';
 import {
-  StyleSheet,
   Text,
   View,
   TouchableHighlight,
@@ -8,7 +8,6 @@ import {
 import { Provider } from 'react-redux';
 
 registerComponent({
-  StyleSheet,
   Text,
   View,
   TouchableHighlight,

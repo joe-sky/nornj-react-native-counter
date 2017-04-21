@@ -2,8 +2,8 @@ import React, {
   Component,
   PropTypes,
 } from 'react';
-import nj from 'nornj';
-import { registerTmpl } from 'nornj-react';
+import { StyleSheet } from 'react-native';
+import { registerTmpl } from 'nornj-react/native';
 
 @registerTmpl({
   name: 'Counter',
@@ -26,11 +26,11 @@ import { registerTmpl } from 'nornj-react';
           <Text style="{ list(styles.text, styles.textColorAdd) }">Increment if odd</Text>
         </TouchableHighlight>
         <TouchableHighlight
-          onPress=${() => incrementAsync()} style={styles.buttonAdd} underlayColor={colors.add.bg}>
+          onPress={onPressAdd} style={styles.buttonAdd} underlayColor={colors.add.bg}>
           <Text style="{ list(styles.text, styles.textColorAdd) }">Increment async</Text>
         </TouchableHighlight>
         <TouchableHighlight
-          onPress=${() => decrementAsync()} style={styles.buttonMinus} underlayColor={colors.minus.bg}>
+          onPress={onPressMinus} style={styles.buttonMinus} underlayColor={colors.minus.bg}>
           <Text style="{ list(styles.text, styles.textColorMinus) }">Decrement async</Text>
         </TouchableHighlight>
       </View>
@@ -41,7 +41,12 @@ class Counter extends Component {
   render() {
     const { incrementAsync, decrementAsync } = this.props;
 
-    return this.template(this.props, { styles });
+    return this.template(this.props, {
+      colors,
+      styles,
+      onPressAdd: () => incrementAsync(),
+      onPressMinus: () => decrementAsync()
+    });
   }
 }
 
