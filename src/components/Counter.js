@@ -4,6 +4,7 @@ import React, {
 } from 'react';
 import { StyleSheet } from 'react-native';
 import { registerTmpl } from 'nornj-react/native';
+import { autobind } from 'core-decorators';
 
 @registerTmpl({
   name: 'Counter',
@@ -13,51 +14,67 @@ import { registerTmpl } from 'nornj-react/native';
         <Text style={styles.numberBlock}>{counter}</Text>
         <Text style={styles.unitBlock}>/ times</Text>
       </View>
-      <View style="{ list(styles.controlPanel, styles.inline) }">
-        <TouchableHighlight onPress={increment} style={styles.buttonAddSmall} underlayColor={colors.add.bg}>
-          <Text style="{ list(styles.text, styles.textColorAdd) }">+</Text>
+      <View style="{list(styles.controlPanel, styles.inline)}">
+        <TouchableHighlight onPress={increment}
+                            style={styles.buttonAddSmall}
+                            underlayColor={colors.add.bg}>
+          <Text style="{list(styles.text, styles.textColorAdd)}">+</Text>
         </TouchableHighlight>
-        <TouchableHighlight onPress={decrement} style={styles.buttonMinusSmall} underlayColor={colors.minus.bg}>
-          <Text style="{ list(styles.text, styles.textColorMinus) }">-</Text>
+        <TouchableHighlight onPress={decrement}
+                            style={styles.buttonMinusSmall}
+                            underlayColor={colors.minus.bg}>
+          <Text style="{list(styles.text, styles.textColorMinus)}">-</Text>
         </TouchableHighlight>
       </View>
       <View style={styles.controlPanel}>
-        <TouchableHighlight onPress={incrementIfOdd} style={styles.buttonAdd} underlayColor={colors.add.bg}>
-          <Text style="{ list(styles.text, styles.textColorAdd) }">Increment if odd</Text>
+        <TouchableHighlight onPress={incrementIfOdd}
+                            style={styles.buttonAdd}
+                            underlayColor={colors.add.bg}>
+          <Text style="{list(styles.text, styles.textColorAdd)}">Increment if odd</Text>
         </TouchableHighlight>
-        <TouchableHighlight
-          onPress={onPressAdd} style={styles.buttonAdd} underlayColor={colors.add.bg}>
-          <Text style="{ list(styles.text, styles.textColorAdd) }">Increment async</Text>
+        <TouchableHighlight onPress={onPressAdd}
+                            style={styles.buttonAdd}
+                            underlayColor={colors.add.bg}>
+          <Text style="{list(styles.text, styles.textColorAdd)}">Increment async</Text>
         </TouchableHighlight>
-        <TouchableHighlight
-          onPress={onPressMinus} style={styles.buttonMinus} underlayColor={colors.minus.bg}>
-          <Text style="{ list(styles.text, styles.textColorMinus) }">Decrement async</Text>
+        <TouchableHighlight onPress={onPressMinus}
+                            style={styles.buttonMinus}
+                            underlayColor={colors.minus.bg}>
+          <Text style="{list(styles.text, styles.textColorMinus)}">Decrement async</Text>
         </TouchableHighlight>
       </View>
     </View>
   `
 })
 class Counter extends Component {
-  render() {
-    const { incrementAsync, decrementAsync } = this.props;
+  static propTypes = {
+    increment: PropTypes.func.isRequired,
+    incrementIfOdd: PropTypes.func.isRequired,
+    incrementAsync: PropTypes.func.isRequired,
+    decrementAsync: PropTypes.func.isRequired,
+    decrement: PropTypes.func.isRequired,
+    counter: PropTypes.number.isRequired
+  };
 
-    return this.template(this.props, {
+  @autobind
+  onPressAdd() {
+    const { incrementAsync } = this.props;
+    return incrementAsync();
+  }
+
+  @autobind
+  onPressMinus() {
+    const { decrementAsync } = this.props;
+    return decrementAsync();
+  }
+
+  render() {
+    return this.template(this.props, this, {
       colors,
-      styles,
-      onPressAdd: () => incrementAsync(),
-      onPressMinus: () => decrementAsync()
+      styles
     });
   }
 }
-
-Counter.propTypes = {
-  increment: PropTypes.func.isRequired,
-  incrementIfOdd: PropTypes.func.isRequired,
-  incrementAsync: PropTypes.func.isRequired,
-  decrementAsync: PropTypes.func.isRequired,
-  decrement: PropTypes.func.isRequired,
-  counter: PropTypes.number.isRequired
-};
 
 const colors = {
   background: {
