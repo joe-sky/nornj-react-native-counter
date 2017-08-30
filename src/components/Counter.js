@@ -1,8 +1,6 @@
-import React, {
-  Component,
-  PropTypes,
-} from 'react';
+import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
+import PropTypes from 'prop-types';
 import { registerTmpl } from 'nornj-react/native';
 import { autobind } from 'core-decorators';
 import styled from 'styled-components/native';
