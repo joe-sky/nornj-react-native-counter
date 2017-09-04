@@ -7,8 +7,8 @@
   },
   "dependencies": {
     "core-decorators": "^0.19.0",
-    "nornj": "^0.4.2-beta.23",
-    "nornj-react": "^0.4.2-beta.8",
+    "nornj": "^0.4.2-beta.27",
+    "nornj-react": "^0.4.2-beta.11",
     "prop-types": "^15.5.10",
     "react": "^16.0.0-alpha.12",
     "react-native": "^0.47.0",
