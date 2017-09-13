@@ -26,7 +26,7 @@ export default nj `
         <Text style="{list(styles.text, styles.textColorAdd)}">Increment if odd</Text>
       </ButtonAdd>
       <ButtonAdd onPress={onPressAdd}
-                          underlayColor={colors.add.bg}>
+                 underlayColor={colors.add.bg}>
         <Text style="{list(styles.text, styles.textColorAdd)}">Increment async</Text>
       </ButtonAdd>
       <ButtonMinus onPress={onPressMinus}

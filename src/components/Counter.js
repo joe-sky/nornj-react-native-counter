@@ -33,10 +33,11 @@ class Counter extends Component {
   }
 
   render() {
-    return template({ components }, this.props, this, {
+    return template({
+      components,
       colors,
       styles
-    });
+    }, this.props, this);
   }
 }
 
