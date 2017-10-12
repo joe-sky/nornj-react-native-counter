@@ -9,7 +9,7 @@ import {
   AppRegistry,
 } from 'react-native';
 import nj from 'nornj';
-import './njConfig';
+import './nj.config';
 import './src/containers/App';
 import configureStore from './src/store/configureStore';
 

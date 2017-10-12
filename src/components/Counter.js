@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { registerTmpl } from 'nornj-react/native';
+import { registerComponent } from 'nornj';
 import { autobind } from 'core-decorators';
 import {
   colors,
@@ -9,7 +9,6 @@ import {
 } from './Counter.style';
 import template from './Counter.template';
 
-@registerTmpl('Counter')
 class Counter extends Component {
   static propTypes = {
     increment: PropTypes.func.isRequired,
@@ -41,4 +40,4 @@ class Counter extends Component {
   }
 }
 
-export default Counter;
+export default registerComponent({ Counter });
