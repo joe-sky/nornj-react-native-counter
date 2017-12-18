@@ -13,25 +13,25 @@ export default nj `
     <ControlPanel style="{styles.inline}">
       <ButtonAddSmall onPress={increment}
                       underlayColor={colors.add.bg}>
-        <Text style="{list(styles.text, styles.textColorAdd)}">+</Text>
+        <Text :style="[styles.text, styles.textColorAdd]">+</Text>
       </ButtonAddSmall>
       <ButtonMinusSmall onPress={decrement}
                         underlayColor={colors.minus.bg}>
-        <Text style="{list(styles.text, styles.textColorMinus)}">-</Text>
+        <Text :style="[styles.text, styles.textColorMinus]">-</Text>
       </ButtonMinusSmall>
     </ControlPanel>
     <ControlPanel>
       <ButtonAdd onPress={incrementIfOdd}
                  underlayColor={colors.add.bg}>
-        <Text style="{list(styles.text, styles.textColorAdd)}">Increment if odd</Text>
+        <Text :style="[styles.text, styles.textColorAdd]">Increment if odd</Text>
       </ButtonAdd>
       <ButtonAdd onPress={onPressAdd}
                  underlayColor={colors.add.bg}>
-        <Text style="{list(styles.text, styles.textColorAdd)}">Increment async</Text>
+        <Text :style="[styles.text, styles.textColorAdd]">Increment async</Text>
       </ButtonAdd>
       <ButtonMinus onPress={onPressMinus}
                    underlayColor={colors.minus.bg}>
-        <Text style="{list(styles.text, styles.textColorMinus)}">Decrement async</Text>
+        <Text :style="[styles.text, styles.textColorMinus]">Decrement async</Text>
       </ButtonMinus>
     </ControlPanel>
   </Container>
