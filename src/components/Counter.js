@@ -7,7 +7,7 @@ import {
   styles,
   components
 } from './Counter.style';
-import template from './Counter.template';
+import tmpls from './Counter.template.t.htm';
 
 class Counter extends Component {
   static propTypes = {
@@ -32,7 +32,7 @@ class Counter extends Component {
   }
 
   render() {
-    return template({
+    return tmpls.main({
       components,
       colors,
       styles

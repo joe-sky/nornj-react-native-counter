@@ -1,15 +1,13 @@
-import nj from 'nornj';
-
-export const displayPanel = nj `
+<template name="displayPanel">
   <DisplayPanel>
     <Text style={styles.numberBlock}>{counter}</Text>
     <Text style={styles.unitBlock}>/ times</Text>
   </DisplayPanel>
-`;
+</template>
 
-export default nj `
+<template>
   <Container>
-    #${displayPanel}
+    <#include name="displayPanel" />
     <ControlPanel style="{styles.inline}">
       <ButtonAddSmall onPress={increment}
                       underlayColor={colors.add.bg}>
@@ -35,4 +33,4 @@ export default nj `
       </ButtonMinus>
     </ControlPanel>
   </Container>
-`;
+</template>
