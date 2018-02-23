@@ -1,8 +1,8 @@
 module.exports = {
   getTransformModulePath() {
-    return require.resolve('./njMetroTransformer');
+    return require.resolve('./node_modules/nornj/tools/metroTransformer');
   },
   getSourceExts() {
-    return ['htm'];
+    return ['htm', 'nj', 'nornj'];
   }
 };
