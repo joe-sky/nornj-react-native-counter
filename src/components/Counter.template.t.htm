@@ -1,6 +1,6 @@
 <template name="displayPanel">
   <DisplayPanel>
-    <Text style={styles.numberBlock}>{counter}</Text>
+    <Text style="{[styles.numberBlock, counter < 0 ? styles.lowerThanZero]}">{counter}</Text>
     <Text style={styles.unitBlock}>/ times</Text>
   </DisplayPanel>
 </template>
@@ -31,6 +31,12 @@
                    underlayColor={colors.minus.bg}>
         <Text :style="[styles.text, styles.textColorMinus]">Decrement async</Text>
       </ButtonMinus>
+      <#if {counter < 0}>
+        <ButtonZero onPress={setToZero}
+                    underlayColor={colors.minus.bg}>
+          <Text :style="[styles.text, styles.textColorMinus]">Set to zero</Text>
+        </ButtonZero>
+      </#if>
     </ControlPanel>
   </Container>
 </template>

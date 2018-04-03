@@ -1,5 +1,6 @@
 export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
 export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
+export const SET_TO_ZERO = 'SET_TO_ZERO';
 
 export function increment() {
   return {
@@ -40,5 +41,11 @@ export function decrementAsync(delay) {
     setTimeout(() => {
       dispatch(decrement());
     }, delay);
+  };
+};
+
+export function setToZero() {
+  return {
+    type: SET_TO_ZERO
   };
 };

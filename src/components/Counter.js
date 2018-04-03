@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { registerComponent } from 'nornj';
+import nj from 'nornj';
 import { autobind } from 'core-decorators';
 import {
   colors,
@@ -22,13 +22,13 @@ class Counter extends Component {
   @autobind
   onPressAdd() {
     const { incrementAsync } = this.props;
-    return incrementAsync();
+    return incrementAsync(500);
   }
 
   @autobind
   onPressMinus() {
     const { decrementAsync } = this.props;
-    return decrementAsync();
+    return decrementAsync(500);
   }
 
   render() {
@@ -40,4 +40,4 @@ class Counter extends Component {
   }
 }
 
-export default registerComponent({ Counter });
+export default nj.registerComponent({ Counter });

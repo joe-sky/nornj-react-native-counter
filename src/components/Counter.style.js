@@ -43,8 +43,20 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
+  },
+  lowerThanZero: {
+    color: '#c70c0c',
   }
 });
+
+const Button = styled.TouchableHighlight `
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  margin: 10px;
+  border-radius: 10px;
+  border-width: 2px;
+`;
 
 export const components = {
   Container: styled.View `
@@ -59,46 +71,27 @@ export const components = {
     align-items: flex-end;
   `,
   ControlPanel: styled.View `
-    margin-vertical: 30px;
+    margin-vertical: 20px;
   `,
-  ButtonAddSmall: styled.TouchableHighlight `
-    justify-content: center;
-    align-items: center;
-    height: 30px;
-    margin: 10px;
-    border-radius: 10px;
-    border-width: 2px;
+  ButtonAddSmall: Button.extend `
     border-color: ${colors.add.border};
     width: 80px;
   `,
-  ButtonMinusSmall: styled.TouchableHighlight `
-    justify-content: center;
-    align-items: center;
-    height: 30px;
-    margin: 10px;
-    border-radius: 10px;
-    border-width: 2px;
+  ButtonMinusSmall: Button.extend `
     border-color: ${colors.minus.border};
     width: 80px;
   `,
-  ButtonAdd: styled.TouchableHighlight `
-    justify-content: center;
-    align-items: center;
-    height: 30px;
-    margin: 10px;
-    border-radius: 10px;
-    border-width: 2px;
+  ButtonAdd: Button.extend `
     border-color: ${colors.add.border};
     padding-left: 10px;
     padding-right: 10px;
   `,
-  ButtonMinus: styled.TouchableHighlight `
-    justify-content: center;
-    align-items: center;
-    height: 30px;
-    margin: 10px;
-    border-radius: 10px;
-    border-width: 2px;
+  ButtonMinus: Button.extend `
+    border-color: ${colors.minus.border};
+    padding-left: 10px;
+    padding-right: 10px;
+  `,
+  ButtonZero: Button.extend `
     border-color: ${colors.minus.border};
     padding-left: 10px;
     padding-right: 10px;
