@@ -1,4 +1,6 @@
-# react-native-counter-ios-android
+# nornj-react-native-counter
+
+This is a fork of [chentsulin/react-native-counter-ios-android](https://github.com/chentsulin/react-native-counter-ios-android) for [NornJ template engine](https://github.com/joe-sky/nornj).
 
 > Minimal implement of redux counter example on ReactNative iOS and Android
 
