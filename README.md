@@ -7,7 +7,7 @@ This is a fork of [chentsulin/react-native-counter-ios-android](https://github.c
 I don't use any syntax out of React Native's enabled transformations, so no any patch on ReactNative is needed.
 
 - react - v16.3.0
-- react-native v0.54.4
+- react-native v0.53.3
 - redux v3
 - react-redux v4
 - redux-thunk v2

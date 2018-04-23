@@ -11,7 +11,7 @@
     "nornj-react": "^0.4.2",
     "prop-types": "^15.5.10",
     "react": "^16.3.0",
-    "react-native": "^0.54.4",
+    "react-native": "^0.53.3",
     "react-redux": "^4.4.6",
     "redux": "^3.6.0",
     "redux-thunk": "^2.1.0",
