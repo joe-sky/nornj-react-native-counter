@@ -73,25 +73,25 @@ export const components = {
   ControlPanel: styled.View `
     margin-vertical: 20px;
   `,
-  ButtonAddSmall: Button.extend `
+  ButtonAddSmall: styled(Button) `
     border-color: ${colors.add.border};
     width: 80px;
   `,
-  ButtonMinusSmall: Button.extend `
+  ButtonMinusSmall: styled(Button) `
     border-color: ${colors.minus.border};
     width: 80px;
   `,
-  ButtonAdd: Button.extend `
+  ButtonAdd: styled(Button) `
     border-color: ${colors.add.border};
     padding-left: 10px;
     padding-right: 10px;
   `,
-  ButtonMinus: Button.extend `
+  ButtonMinus: styled(Button) `
     border-color: ${colors.minus.border};
     padding-left: 10px;
     padding-right: 10px;
   `,
-  ButtonZero: Button.extend `
+  ButtonZero: styled(Button) `
     border-color: ${colors.minus.border};
     padding-left: 10px;
     padding-right: 10px;

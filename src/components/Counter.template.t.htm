@@ -31,12 +31,7 @@
                    underlayColor={colors.minus.bg}>
         <Text :style="[styles.text, styles.textColorMinus]">Decrement async</Text>
       </ButtonMinus>
-      <#if {counter < 0}>
-        <ButtonZero onPress={setToZero}
-                    underlayColor={colors.minus.bg}>
-          <Text :style="[styles.text, styles.textColorMinus]">Set to zero</Text>
-        </ButtonZero>
-      </#if>
+      <Zeroing {counter} {setToZero} />
     </ControlPanel>
   </Container>
 </template>

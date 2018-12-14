@@ -1,9 +1,12 @@
 {
-  "presets": ["react-native"],
+  "presets": ["module:metro-react-native-babel-preset"],
   "plugins": [
-    "transform-decorators-legacy", [
-      "transform-class-properties",
-      { "loose": false }
-    ]
+    ["nornj-in-jsx", { "rn": true }],
+    ["@babel/plugin-proposal-decorators", { "legacy" : true }],
+    ["module-resolver", {
+      "alias": {
+        "nornj": "nornj/dist/nornj.runtime.common"
+      }
+    }]
   ]
 }

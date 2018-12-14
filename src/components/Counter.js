@@ -8,6 +8,7 @@ import {
   components
 } from './Counter.style';
 import tmpls from './Counter.template.t.htm';
+import Zeroing from './Zeroing.jsx';
 
 class Counter extends Component {
   static propTypes = {
@@ -33,7 +34,7 @@ class Counter extends Component {
 
   render() {
     return tmpls.main({
-      components,
+      components: { ...components, Zeroing },
       colors,
       styles
     }, this.props, this);
