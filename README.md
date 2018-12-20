@@ -13,7 +13,7 @@ I don't use any syntax out of React Native's enabled transformations, so no any 
 - redux-thunk v2
 - remote-redux-devtools v0.5
 - styled-components - v4
-- nornj - v0.4.16
+- nornj - v0.4.17
 
 ![](https://cloud.githubusercontent.com/assets/8992046/15353674/c28f295e-1d1c-11e6-8168-5b17841e2b18.png)
 

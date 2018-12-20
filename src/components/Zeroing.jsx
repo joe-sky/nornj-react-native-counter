@@ -7,9 +7,8 @@ import {
 } from './Counter.style';
 const { ButtonZero } = components;
 
-export default props => <if condition={props.counter < 0}>
-  <ButtonZero onPress={props.setToZero} underlayColor={colors.minus.bg}>
+export default props => (
+  <ButtonZero onPress={props.setToZero} underlayColor={colors.minus.bg} n-show={props.counter < 0}>
     <Text style={[styles.text, styles.textColorMinus]}>Set to zero</Text>
   </ButtonZero>
-  <else>{null}</else>
-</if>;
+);

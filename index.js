@@ -25,4 +25,5 @@ export default class ReduxCounterUniversal extends Component {
   }
 }
 
+console.disableYellowBox = true;
 AppRegistry.registerComponent('ReduxCounterUniversal', () => ReduxCounterUniversal);
